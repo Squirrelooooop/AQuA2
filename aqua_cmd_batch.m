@@ -15,13 +15,13 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = 'D:\AQuA2-data\'; %% input file folder
-pOut = 'D:\AQuA2-data\result\'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20250904_SunnyTest29B/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20250904_SunnyTest29B/AQUA2_Batch_Processing/'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
 
-batchSet.outputMovie = true;    % whether to output movie with detection overlay
+batchSet.outputMovie = false;    % whether to output movie with detection overlay
 batchSet.outputFeatureTable = true; % whether to output feature table
 
 %% For cell boundary and landmark
@@ -50,11 +50,10 @@ files = [files_tif; files_tiff; files_mat];
 for xxx = 1:numel(files)
     f1 = files(xxx).name; 
     %% load setting (you can also manually modify setting here)
-    opts = util.parseParam_for_batch(xxx);
+    opts = util.parseParam_for_batch(1);
     opts.singleChannel = true;      % batch only leverages single channel for simplicity
     opts.whetherExtend = true;
-
-%     opts.detectGlo = true;
+    opts.detectGlo = true;
     opts.propMetric = batchSet.propMetric;
     opts.networkFeatures = batchSet.networkFeatures;
 
@@ -354,7 +353,7 @@ for xxx = 1:numel(files)
     disp('Saving result...');
     name = erase(f1, {'.tiff','.tif','.mat'});
     if (numel(files)>1)
-        pOut_each = [pOut, name, '_results\'];
+        pOut_each = [pOut, name, '_results/'];
         mkdir(pOut_each);
     else
         pOut_each = pOut;

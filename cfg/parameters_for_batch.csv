@@ -23,12 +23,12 @@ Source size relative to super event,sourceSzRatio,spaSeg,0.01,0.01,0.01,0.01,0.0
 Sensitivity to detect source (Level 1 to 10),sourceSensitivity,spaSeg,8,8,8,8,8,8,8,8,8,8,8,8
 Whether to extend event temporally,whetherExtend,spaSeg,1,1,1,1,1,1,1,1,1,1,1,1
 ,,,,,,,,,,,,,,
-Whether detect global signals,detectGlo,glo,0,0,0,0,0,0,0,0,0,0,0,0
+Whether detect global signals,detectGlo,glo,1,0,0,0,0,0,0,0,0,0,0,0
 Minimum duration of global signal,gloDur,glo,20,20,20,20,20,20,20,20,20,20,20,20
 ,,,,,,,,,,,,,,
-Ignore decay tau calculation,ignoreTau,post,1,1,1,1,1,1,1,1,1,1,1,1
-Propagation metric in different directions (propagation map is already obtained),propMetric,post,0,0,0,0,0,0,0,0,0,0,0,0
-Network features,networkFeatures,post,0,0,0,0,0,0,0,0,0,0,0,0
+Ignore decay tau calculation,ignoreTau,post,0,1,1,1,1,1,1,1,1,1,1,1
+Propagation metric in different directions (propagation map is already obtained),propMetric,post,1,0,0,0,0,0,0,0,0,0,0,0
+Network features,networkFeatures,post,1,0,0,0,0,0,0,0,0,0,0,0
 ,,,,,,,,,,,,,,
 Propagation smoothness,gtwSmo,latent,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2
 Intensity step for checking signal source,ratio,latent,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
@@ -46,8 +46,8 @@ Downsample duration,TPatch,latent,20,20,20,20,20,20,20,20,20,20,20,20
 Max Downsample Spatial,maxSpaScale,latent,7,7,7,7,7,7,7,7,7,7,7,7
 Min Downsample Spatial,minSpaScale,latent,3,3,3,3,3,3,3,3,3,3,3,3
 ,,,,,,,,,,,,,,
-Frame rate,frameRate,from data,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
-Spatial resolution,spatialRes,from data,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
+Frame rate,frameRate,from data,0.06,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
+Spatial resolution,spatialRes,from data,4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
 Estimated noise variance,varEst,from data,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02
 Foreground threshold,fgFluo,from data,0,0,0,0,0,0,0,0,0,0,0,0
 Background threshold,bgFluo,from data,0,0,0,0,0,0,0,0,0,0,0,0
