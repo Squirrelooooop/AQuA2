@@ -63,10 +63,8 @@ for xxx = 1:numel(files)
     [H,W,L,T] = size(datOrg1);
     opts.singleChannel = isempty(datOrg2);
 
-    %% CUSTOM FUNCTION: This corrects for any baseline trends such as photobleaching or changes in the video brightness for some reason.
-    % It is quick and dirty and uses the mean value for the whole FOV, consider changing this to only use background.
-    avg = mean(mean(datOrg1(:,:,1,:),1),2);
-    datOrg1 = datOrg1./avg;
+    %% CUSTOM FUNCTION
+    
 
     %% preprocessing
     disp('Preprocessing...');
