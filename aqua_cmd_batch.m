@@ -21,7 +21,7 @@ pOut = '/Users/sunny/Desktop/Data/20250904_SunnyTest29B/AQUA2_Batch_Processing/'
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
 
-batchSet.outputMovie = false;    % whether to output movie with detection overlay
+batchSet.outputMovie = true;    % whether to output movie with detection overlay
 batchSet.outputFeatureTable = true; % whether to output feature table
 
 %% For cell boundary and landmark
@@ -353,9 +353,9 @@ for xxx = 1:numel(files)
     disp('Saving result...');
     name = erase(f1, {'.tiff','.tif','.mat'});
     if (numel(files)>1)
-        pOut_each = [pOut, name, '_results/'];
-        mkdir(pOut_each);
-    else
+        %pOut_each = [pOut, name, '_results/'];
+        %mkdir(pOut_each);
+    %else
         pOut_each = pOut;
     end
     save([pOut_each,name,'_AQuA2.mat'], 'res','-v7.3');   
