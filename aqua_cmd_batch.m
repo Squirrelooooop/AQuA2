@@ -53,7 +53,7 @@ for xxx = 1:numel(files)
     opts = util.parseParam_for_batch(1);
     opts.singleChannel = true;      % batch only leverages single channel for simplicity
     opts.whetherExtend = true;
-    opts.detectGlo = true;
+    opts.detectGlo = false;
     opts.propMetric = batchSet.propMetric;
     opts.networkFeatures = batchSet.networkFeatures;
 
@@ -359,9 +359,9 @@ for xxx = 1:numel(files)
     disp('Saving result...');
     name = erase(f1, {'.tiff','.tif','.mat'});
     if (numel(files)>1)
-        pOut_each = [pOut, name, '_results/'];
-        mkdir(pOut_each);
-    else
+    %    pOut_each = [pOut, name, '_results/'];
+    %    mkdir(pOut_each);
+    % else
         pOut_each = pOut;
     end
     save([pOut_each,name,'_AQuA2.mat'], 'res','-v7.3');   
