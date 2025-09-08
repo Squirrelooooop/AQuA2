@@ -402,23 +402,23 @@ for xxx = 1:numel(files)
             ftTbGlo2 = [];
         end
     
-        %% curves
-        fea.outputCurves(dffAlignedMat1, fts1, dffAlignedMat2, fts2, opts, fpath, fname);
-        if(opts.detectGlo)
-            fea.outputCurves(dffAlignedMatGlo1, ftsGlo1, dffAlignedMatGlo2, ftsGlo2, opts, fpath, [fname,'_Glo']);
-        end
-    
-        %% for each region
-        fea.outputRegions(fts1, ftTb1, [], fts2, ftTb2, [], bd, opts, fpath, fname);
-        if(opts.detectGlo)
-            fea.outputRegions(ftsGlo1, ftTbGlo1, [], ftsGlo2, ftTbGlo2, [], bd, opts, fpath, fname);
-        end
-    
-        %% rising maps
-        fea.outputRisingMap([],[],riseLst1, 1:numel(riseLst1), riseLst2, 1:numel(riseLst2), opts, fpath, [fname, '_risingMaps']);
-        if(opts.detectGlo)
-            fea.outputRisingMap([],[],gloRiseLst1, 1:numel(gloRiseLst1), gloRiseLst2, 1:numel(gloRiseLst2), opts, fpath ,[fname, '_risingMaps_Glo']);
-        end
+        % %% curves
+        % fea.outputCurves(dffAlignedMat1, fts1, dffAlignedMat2, fts2, opts, fpath, fname);
+        % if(opts.detectGlo)
+        %     fea.outputCurves(dffAlignedMatGlo1, ftsGlo1, dffAlignedMatGlo2, ftsGlo2, opts, fpath, [fname,'_Glo']);
+        % end
+        % 
+        % %% for each region
+        % fea.outputRegions(fts1, ftTb1, [], fts2, ftTb2, [], bd, opts, fpath, fname);
+        % if(opts.detectGlo)
+        %     fea.outputRegions(ftsGlo1, ftTbGlo1, [], ftsGlo2, ftTbGlo2, [], bd, opts, fpath, fname);
+        % end
+        % 
+        % %% rising maps
+        % fea.outputRisingMap([],[],riseLst1, 1:numel(riseLst1), riseLst2, 1:numel(riseLst2), opts, fpath, [fname, '_risingMaps']);
+        % if(opts.detectGlo)
+        %     fea.outputRisingMap([],[],gloRiseLst1, 1:numel(gloRiseLst1), gloRiseLst2, 1:numel(gloRiseLst2), opts, fpath ,[fname, '_risingMaps_Glo']);
+        % end
 
     end
 

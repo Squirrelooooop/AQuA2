@@ -2,12 +2,12 @@ Name,Variable,Type,File1,File2,File3,File4,File5,File6,File7,File8,File9,File10,
 Registration mode,registrateCorrect,preprocessing,1,1,1,1,1,1,1,1,1,1,1,1
 Bleach correction mode,bleachCorrect,preprocessing,1,1,1,1,1,1,1,1,1,1,1,1
 Median filter radius (For salt and pepper noise),medSmo,preprocessing,0,0,0,0,0,0,0,0,0,0,0,0
-Spatial smoothing level,smoXY,preprocessing,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
+Spatial smoothing level,smoXY,preprocessing,0,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
 ,,,,,,,,,,,,,,
 Active voxels threshold scale,thrARScl,activeregion,3,3,3,3,3,3,3,3,3,3,3,3
 Minimum duration of signal,minDur,activeregion,5,5,5,5,5,5,5,5,5,5,5,5
-Minimum size,minSize,activeregion,7000,20,20,20,20,20,20,20,20,20,20,20
-Maximum size,maxSize,activeregion,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf
+Minimum size,minSize,activeregion,1000,20,20,20,20,20,20,20,20,20,20,20
+Maximum size,maxSize,activeregion,100000,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf
 Circularity threshold,circularityThr,activeregion,0,0,0,0,0,0,0,0,0,0,0,0
 Allowed distance in the same signal,spaMergeDist,activeregion,0,0,0,0,0,0,0,0,0,0,0,0
 ,,,,,,,,,,,,,,
@@ -20,7 +20,7 @@ Whether signals are not large enough so that further growing is needed,needGrow,
 ,,,,,,,,,,,,,,
 Whether need spatial segmentation or not,needSpa,spaSeg,1,1,1,1,1,1,1,1,1,1,1,1
 Source size relative to super event,sourceSzRatio,spaSeg,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01
-Sensitivity to detect source (Level 1 to 10),sourceSensitivity,spaSeg,8,8,8,8,8,8,8,8,8,8,8,8
+Sensitivity to detect source (Level 1 to 10),sourceSensitivity,spaSeg,9,8,8,8,8,8,8,8,8,8,8,8
 Whether to extend event temporally,whetherExtend,spaSeg,1,1,1,1,1,1,1,1,1,1,1,1
 ,,,,,,,,,,,,,,
 Whether detect global signals,detectGlo,glo,0,0,0,0,0,0,0,0,0,0,0,0
