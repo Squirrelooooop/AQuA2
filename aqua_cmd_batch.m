@@ -64,10 +64,11 @@ for xxx = 1:numel(files)
     opts.singleChannel = isempty(datOrg2);
 
     %% CUSTOM FUNCTION: This corrects for any baseline trends such as photobleaching or changes in the video brightness for some reason.
-    % It is quick and dirty and uses the mean value for the whole FOV, consider changing this to only use background.
-    avg = mean(mean(datOrg1(:,:,1,:),1),2);
+    % It is quick and dirty and uses the median value for the whole FOV.
+    avg = median(median(datOrg1(:,:,1,:),1),2);
     tmp = repmat(avg(1),size(datOrg1,1),size(datOrg1,2),size(datOrg1,3),size(datOrg1,4));
     datOrg1 = (datOrg1./avg).*tmp;
+
     %% preprocessing
     disp('Preprocessing...');
     if(opts.registrateCorrect == 2)
