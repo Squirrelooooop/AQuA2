@@ -15,8 +15,8 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = '/Users/sunny/Desktop/Data/20251014_slice_V35/20251015_analysis1/'; %% input file folder
-pOut = '/Users/sunny/Desktop/Data/20251014_slice_V35/20251015_analysis1/'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20250904_SunnyTest29B/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20250904_SunnyTest29B/'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
@@ -50,10 +50,10 @@ files = [files_tif; files_tiff; files_mat];
 for xxx = 1:numel(files)
     f1 = files(xxx).name; 
     %% load setting (you can also manually modify setting here)
-    opts = util.parseParam_for_batch(2);
+    opts = util.parseParam_for_batch(1);
     opts.singleChannel = true;      % batch only leverages single channel for simplicity
     opts.whetherExtend = true;
-    opts.detectGlo = true;
+    opts.detectGlo = false;
     opts.propMetric = batchSet.propMetric;
     opts.networkFeatures = batchSet.networkFeatures;
 
@@ -403,46 +403,46 @@ for xxx = 1:numel(files)
             ftTbGlo2 = [];
         end
     
-        %% curves
-        fea.outputCurves(dffAlignedMat1, fts1, dffAlignedMat2, fts2, opts, fpath, fname);
-        if(opts.detectGlo)
-            fea.outputCurves(dffAlignedMatGlo1, ftsGlo1, dffAlignedMatGlo2, ftsGlo2, opts, fpath, [fname,'_Glo']);
-        end
-
-        %% for each region
-        fea.outputRegions(fts1, ftTb1, [], fts2, ftTb2, [], bd, opts, fpath, fname);
-        if(opts.detectGlo)
-            fea.outputRegions(ftsGlo1, ftTbGlo1, [], ftsGlo2, ftTbGlo2, [], bd, opts, fpath, fname);
-        end
-
-        %% rising maps
-        fea.outputRisingMap([],[],riseLst1, 1:numel(riseLst1), riseLst2, 1:numel(riseLst2), opts, fpath, [fname, '_risingMaps']);
-        if(opts.detectGlo)
-            fea.outputRisingMap([],[],gloRiseLst1, 1:numel(gloRiseLst1), gloRiseLst2, 1:numel(gloRiseLst2), opts, fpath ,[fname, '_risingMaps_Glo']);
-        end
+        % %% curves
+        % fea.outputCurves(dffAlignedMat1, fts1, dffAlignedMat2, fts2, opts, fpath, fname);
+        % if(opts.detectGlo)
+        %     fea.outputCurves(dffAlignedMatGlo1, ftsGlo1, dffAlignedMatGlo2, ftsGlo2, opts, fpath, [fname,'_Glo']);
+        % end
+        % 
+        % %% for each region
+        % fea.outputRegions(fts1, ftTb1, [], fts2, ftTb2, [], bd, opts, fpath, fname);
+        % if(opts.detectGlo)
+        %     fea.outputRegions(ftsGlo1, ftTbGlo1, [], ftsGlo2, ftTbGlo2, [], bd, opts, fpath, fname);
+        % end
+        % 
+        % %% rising maps
+        % fea.outputRisingMap([],[],riseLst1, 1:numel(riseLst1), riseLst2, 1:numel(riseLst2), opts, fpath, [fname, '_risingMaps']);
+        % if(opts.detectGlo)
+        %     fea.outputRisingMap([],[],gloRiseLst1, 1:numel(gloRiseLst1), gloRiseLst2, 1:numel(gloRiseLst2), opts, fpath ,[fname, '_risingMaps_Glo']);
+        % end
 
     end
 
-    % %% export movie
-    % if batchSet.outputMovie
-    %     if opts.sz(3) == 1
-    %         ov1 = plt.regionMapWithData(evt1,datOrg1,0.5,datR1);
-    %         if ~opts.singleChannel
-    %             ov2 = plt.regionMapWithData(evt2,datOrg2,0.5,datR2);
-    %             io.writeTiffSeq([pOut_each,name,'_AQuA2_Channel_1.tif'],ov1,0);
-    %             io.writeTiffSeq([pOut_each,name,'_AQuA2_Channel_2.tif'],ov2,0);
-    %         else
-    %             io.writeTiffSeq([pOut_each,name,'_AQuA2_Movie.tif'],ov1,0);
-    %         end
-    %     else
-    %         ov1 = plt.regionMapWithData(evt1,datOrg1,0.5,datR1);
-    %         for tt = 1:opts.sz(4)
-    %             io.writeTiffSeq([pOut_each,name,'_AQuA2_Ch1_Frame',num2str(tt),'.tif'],ov1(:,:,:,:,tt),0);
-    %         end
-    %         if ~opts.singleChannel
-    %             ov2 = plt.regionMapWithData(evt2,datOrg2,0.5,datR2);
-    %             io.writeTiffSeq([pOut_each,name,'_AQuA2_Ch2_Frame',num2str(tt),'.tif'],ov2(:,:,:,:,tt),0);
-    %         end
-    %     end
-    % end
+    %% export movie
+    if batchSet.outputMovie
+        if opts.sz(3) == 1
+            ov1 = plt.regionMapWithData(evt1,datOrg1,0.5,datR1);
+            if ~opts.singleChannel
+                ov2 = plt.regionMapWithData(evt2,datOrg2,0.5,datR2);
+                io.writeTiffSeq([pOut_each,name,'_AQuA2_Channel_1.tif'],ov1,0);
+                io.writeTiffSeq([pOut_each,name,'_AQuA2_Channel_2.tif'],ov2,0);
+            else
+                io.writeTiffSeq([pOut_each,name,'_AQuA2_Movie.tif'],ov1,0);
+            end
+        else
+            ov1 = plt.regionMapWithData(evt1,datOrg1,0.5,datR1);
+            for tt = 1:opts.sz(4)
+                io.writeTiffSeq([pOut_each,name,'_AQuA2_Ch1_Frame',num2str(tt),'.tif'],ov1(:,:,:,:,tt),0);
+            end
+            if ~opts.singleChannel
+                ov2 = plt.regionMapWithData(evt2,datOrg2,0.5,datR2);
+                io.writeTiffSeq([pOut_each,name,'_AQuA2_Ch2_Frame',num2str(tt),'.tif'],ov2(:,:,:,:,tt),0);
+            end
+        end
+    end
 end
