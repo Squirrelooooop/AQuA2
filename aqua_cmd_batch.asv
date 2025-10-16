@@ -15,8 +15,8 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = '/Users/sunny/Desktop/Data/20251014_slice_V35/20251015_analysis1/'; %% input file folder
-pOut = '/Users/sunny/Desktop/Data/20251014_slice_V35/20251015_analysis1/'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20250904_SunnyTest29C/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20250904_SunnyTest29C/analysis2/'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
@@ -423,26 +423,26 @@ for xxx = 1:numel(files)
 
     end
 
-    % %% export movie
-    % if batchSet.outputMovie
-    %     if opts.sz(3) == 1
-    %         ov1 = plt.regionMapWithData(evt1,datOrg1,0.5,datR1);
-    %         if ~opts.singleChannel
-    %             ov2 = plt.regionMapWithData(evt2,datOrg2,0.5,datR2);
-    %             io.writeTiffSeq([pOut_each,name,'_AQuA2_Channel_1.tif'],ov1,0);
-    %             io.writeTiffSeq([pOut_each,name,'_AQuA2_Channel_2.tif'],ov2,0);
-    %         else
-    %             io.writeTiffSeq([pOut_each,name,'_AQuA2_Movie.tif'],ov1,0);
-    %         end
-    %     else
-    %         ov1 = plt.regionMapWithData(evt1,datOrg1,0.5,datR1);
-    %         for tt = 1:opts.sz(4)
-    %             io.writeTiffSeq([pOut_each,name,'_AQuA2_Ch1_Frame',num2str(tt),'.tif'],ov1(:,:,:,:,tt),0);
-    %         end
-    %         if ~opts.singleChannel
-    %             ov2 = plt.regionMapWithData(evt2,datOrg2,0.5,datR2);
-    %             io.writeTiffSeq([pOut_each,name,'_AQuA2_Ch2_Frame',num2str(tt),'.tif'],ov2(:,:,:,:,tt),0);
-    %         end
-    %     end
-    % end
+    %% export movie
+    if batchSet.outputMovie
+        if opts.sz(3) == 1
+            ov1 = plt.regionMapWithData(evt1,datOrg1,0.5,datR1);
+            if ~opts.singleChannel
+                ov2 = plt.regionMapWithData(evt2,datOrg2,0.5,datR2);
+                io.writeTiffSeq([pOut_each,name,'_AQuA2_Channel_1.tif'],ov1,0);
+                io.writeTiffSeq([pOut_each,name,'_AQuA2_Channel_2.tif'],ov2,0);
+            else
+                io.writeTiffSeq([pOut_each,name,'_AQuA2_Movie.tif'],ov1,0);
+            end
+        else
+            ov1 = plt.regionMapWithData(evt1,datOrg1,0.5,datR1);
+            for tt = 1:opts.sz(4)
+                io.writeTiffSeq([pOut_each,name,'_AQuA2_Ch1_Frame',num2str(tt),'.tif'],ov1(:,:,:,:,tt),0);
+            end
+            if ~opts.singleChannel
+                ov2 = plt.regionMapWithData(evt2,datOrg2,0.5,datR2);
+                io.writeTiffSeq([pOut_each,name,'_AQuA2_Ch2_Frame',num2str(tt),'.tif'],ov2(:,:,:,:,tt),0);
+            end
+        end
+    end
 end
