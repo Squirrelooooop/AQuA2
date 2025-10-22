@@ -15,8 +15,8 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = '/Users/sunny/Desktop/Data/20251014_slice_V35/20251015_analysis1/'; %% input file folder
-pOut = '/Users/sunny/Desktop/Data/20251014_slice_V35/20251015_analysis1/'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20251014_slice_V35/firstATP/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20251014_slice_V35/firstATP/'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
