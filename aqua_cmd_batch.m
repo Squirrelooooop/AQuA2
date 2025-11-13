@@ -15,8 +15,13 @@ close all;
 clc;
 clearvars
 startup;  % initialize
+<<<<<<< Updated upstream
 pIn = '/Users/sunny/Desktop/Data/20250904_SunnyTest29B/'; %% input file folder
 pOut = '/Users/sunny/Desktop/Data/20250904_SunnyTest29B/AQUA2_Batch_Processing/'; %% the folder for output results. Note that it ends with \.
+=======
+pIn = '/Users/sunny/Desktop/Data/20251028_v35_m2/merged/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20251028_v35_m2/merged/'; %% the folder for output results. Note that it ends with \.
+>>>>>>> Stashed changes
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
@@ -50,7 +55,11 @@ files = [files_tif; files_tiff; files_mat];
 for xxx = 1:numel(files)
     f1 = files(xxx).name; 
     %% load setting (you can also manually modify setting here)
+<<<<<<< Updated upstream
     opts = util.parseParam_for_batch(1);
+=======
+    opts = util.parseParam_for_batch(3);
+>>>>>>> Stashed changes
     opts.singleChannel = true;      % batch only leverages single channel for simplicity
     opts.whetherExtend = true;
     opts.detectGlo = true;
