@@ -15,8 +15,8 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = '/Users/sunny/Desktop/Data/20251111_v35_m4_5_epi/analysis/'; %% input file folder
-pOut = '/Users/sunny/Desktop/Data/20251111_v35_m4_5_epi/analysis/'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20251028_v35_m2/merged/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20251028_v35_m2/merged/'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
