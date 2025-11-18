@@ -15,8 +15,8 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = '/Users/sunny/Desktop/Data/20251111_v35_m4_5_inv/merged/'; %% input file folder
-pOut = '/Users/sunny/Desktop/Data/20251111_v35_m4_5_inv/merged/'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/merged/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/merged/'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
@@ -50,7 +50,7 @@ files = [files_tif; files_tiff; files_mat];
 for xxx = 1:numel(files)
     f1 = files(xxx).name; 
     %% load setting (you can also manually modify setting here)
-    opts = util.parseParam_for_batch(4);
+    opts = util.parseParam_for_batch(3);
     opts.singleChannel = true;      % batch only leverages single channel for simplicity
     opts.whetherExtend = true;
     opts.detectGlo = false;
@@ -65,7 +65,7 @@ for xxx = 1:numel(files)
 
     %% Remove the high freq noise by averaging 1 sec window pixel by pixel
     Fs = 1/0.12; % 60ms per frame
-    tmp = reshape(datOrg1,[],1,1,1000); % how many frames in total
+    tmp = reshape(datOrg1,[],1,1,5000); % how many frames in total
     clearvars dat0rg1
     for ipix = 1:size(tmp,1)
         tmp(ipix,:,:,:) = movmean(double(tmp(ipix,:,:,:)),Fs);
