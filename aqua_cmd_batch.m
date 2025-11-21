@@ -63,23 +63,6 @@ for xxx = 1:numel(files)
     [H,W,L,T] = size(datOrg1);
     opts.singleChannel = isempty(datOrg2);
 
-    %% Remove the high freq noise by averaging 1 sec window pixel by pixel
-    Fs = 1/0.12; % 60ms per frame
-    tmp = reshape(datOrg1,[],1,1,5000); % how many frames in total
-    clearvars dat0rg1
-    for ipix = 1:size(tmp,1)
-        tmp(ipix,:,:,:) = movmean(double(tmp(ipix,:,:,:)),Fs);
-    end
-    datOrg1 = reshape(tmp,size(datOrg1));
-    clearvars tmp
-
-    %% CUSTOM FUNCTION: This corrects for any baseline trends such as photobleaching or changes in the video brightness for some reason.
-    % It is quick and dirty and uses the median value for the whole FOV.
-    avg = median(median(datOrg1(:,:,1,:),1),2);
-    tmp = repmat(avg(1),size(datOrg1,1),size(datOrg1,2),size(datOrg1,3),size(datOrg1,4));
-    datOrg1 = (datOrg1./avg).*tmp;
-    clearvars tmp
-
     %% preprocessing
     disp('Preprocessing...');
     if(opts.registrateCorrect == 2)
