@@ -15,8 +15,8 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/merged/'; %% input file folder
-pOut = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/merged/'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/processed/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/processed/'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
@@ -50,7 +50,7 @@ files = [files_tif; files_tiff; files_mat];
 for xxx = 1:numel(files)
     f1 = files(xxx).name; 
     %% load setting (you can also manually modify setting here)
-    opts = util.parseParam_for_batch(3);
+    opts = util.parseParam_for_batch(5);
     opts.singleChannel = true;      % batch only leverages single channel for simplicity
     opts.whetherExtend = true;
     opts.detectGlo = false;

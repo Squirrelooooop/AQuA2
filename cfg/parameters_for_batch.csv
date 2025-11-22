@@ -6,8 +6,8 @@ Spatial smoothing level,smoXY,preprocessing,0,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.
 ,,,,,,,,,,,,,,
 Active voxels threshold scale,thrARScl,activeregion,3,3,3,3,3,3,3,3,3,3,3,3
 Minimum duration of signal,minDur,activeregion,5,5,5,5,5,5,5,5,5,5,5,5
-Minimum size,minSize,activeregion,1000,100,100,100,20,20,20,20,20,20,20,20
-Maximum size,maxSize,activeregion,100000,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf
+Minimum size,minSize,activeregion,1000,100,100,100,100,20,20,20,20,20,20,20
+Maximum size,maxSize,activeregion,100000,inf,inf,inf,110000,inf,inf,inf,inf,inf,inf,inf
 Circularity threshold,circularityThr,activeregion,0,0,0,0,0,0,0,0,0,0,0,0
 Allowed distance in the same signal,spaMergeDist,activeregion,0,0,0,0,0,0,0,0,0,0,0,0
 ,,,,,,,,,,,,,,
@@ -46,8 +46,8 @@ Downsample duration,TPatch,latent,20,20,20,20,20,20,20,20,20,20,20,20
 Max Downsample Spatial,maxSpaScale,latent,7,7,7,7,7,7,7,7,7,7,7,7
 Min Downsample Spatial,minSpaScale,latent,3,3,3,3,3,3,3,3,3,3,3,3
 ,,,,,,,,,,,,,,
-Frame rate,frameRate,from data,0.06,0.06,0.06,0.12,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
-Spatial resolution,spatialRes,from data,4,2,1,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
+Frame rate,frameRate,from data,0.06,0.06,0.06,0.12,0.6,0.5,0.5,0.5,0.5,0.5,0.5,0.5
+Spatial resolution,spatialRes,from data,4,2,1,0.5,1,0.5,0.5,0.5,0.5,0.5,0.5,0.5
 Estimated noise variance,varEst,from data,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02
 Foreground threshold,fgFluo,from data,0,0,0,0,0,0,0,0,0,0,0,0
 Background threshold,bgFluo,from data,0,0,0,0,0,0,0,0,0,0,0,0
