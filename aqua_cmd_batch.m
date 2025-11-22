@@ -15,8 +15,8 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = '/Users/sunny/Desktop/Data/20251014_slice_V35/firstATP/'; %% input file folder
-pOut = '/Users/sunny/Desktop/Data/20251014_slice_V35/firstATP/'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/processed/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/processed/'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
@@ -50,7 +50,7 @@ files = [files_tif; files_tiff; files_mat];
 for xxx = 1:numel(files)
     f1 = files(xxx).name; 
     %% load setting (you can also manually modify setting here)
-    opts = util.parseParam_for_batch(2);
+    opts = util.parseParam_for_batch(5);
     opts.singleChannel = true;      % batch only leverages single channel for simplicity
     opts.whetherExtend = true;
     opts.detectGlo = false;
@@ -62,12 +62,6 @@ for xxx = 1:numel(files)
     [datOrg1,datOrg2,opts] = burst.prep1(pIn,f1,pIn,[],[],opts);
     [H,W,L,T] = size(datOrg1);
     opts.singleChannel = isempty(datOrg2);
-
-    %% CUSTOM FUNCTION: This corrects for any baseline trends such as photobleaching or changes in the video brightness for some reason.
-    % It is quick and dirty and uses the median value for the whole FOV.
-    avg = median(median(datOrg1(:,:,1,:),1),2);
-    tmp = repmat(avg(1),size(datOrg1,1),size(datOrg1,2),size(datOrg1,3),size(datOrg1,4));
-    datOrg1 = (datOrg1./avg).*tmp;
 
     %% preprocessing
     disp('Preprocessing...');

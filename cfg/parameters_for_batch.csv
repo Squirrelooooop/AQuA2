@@ -6,8 +6,8 @@ Spatial smoothing level,smoXY,preprocessing,0,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.
 ,,,,,,,,,,,,,,
 Active voxels threshold scale,thrARScl,activeregion,3,3,3,3,3,3,3,3,3,3,3,3
 Minimum duration of signal,minDur,activeregion,5,5,5,5,5,5,5,5,5,5,5,5
-Minimum size,minSize,activeregion,1000,100,20,20,20,20,20,20,20,20,20,20
-Maximum size,maxSize,activeregion,100000,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf
+Minimum size,minSize,activeregion,1000,100,100,100,100,20,20,20,20,20,20,20
+Maximum size,maxSize,activeregion,100000,inf,inf,inf,110000,inf,inf,inf,inf,inf,inf,inf
 Circularity threshold,circularityThr,activeregion,0,0,0,0,0,0,0,0,0,0,0,0
 Allowed distance in the same signal,spaMergeDist,activeregion,0,0,0,0,0,0,0,0,0,0,0,0
 ,,,,,,,,,,,,,,
@@ -20,20 +20,20 @@ Whether signals are not large enough so that further growing is needed,needGrow,
 ,,,,,,,,,,,,,,
 Whether need spatial segmentation or not,needSpa,spaSeg,1,1,1,1,1,1,1,1,1,1,1,1
 Source size relative to super event,sourceSzRatio,spaSeg,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01
-Sensitivity to detect source (Level 1 to 10),sourceSensitivity,spaSeg,9,9,8,8,8,8,8,8,8,8,8,8
+Sensitivity to detect source (Level 1 to 10),sourceSensitivity,spaSeg,9,9,9,9,8,8,8,8,8,8,8,8
 Whether to extend event temporally,whetherExtend,spaSeg,1,1,1,1,1,1,1,1,1,1,1,1
 ,,,,,,,,,,,,,,
 Whether detect global signals,detectGlo,glo,0,0,0,0,0,0,0,0,0,0,0,0
 Minimum duration of global signal,gloDur,glo,20,20,20,20,20,20,20,20,20,20,20,20
 ,,,,,,,,,,,,,,
 Ignore decay tau calculation,ignoreTau,post,1,1,1,1,1,1,1,1,1,1,1,1
-Propagation metric in different directions (propagation map is already obtained),propMetric,post,1,1,0,0,0,0,0,0,0,0,0,0
+Propagation metric in different directions (propagation map is already obtained),propMetric,post,1,1,1,1,0,0,0,0,0,0,0,0
 Network features,networkFeatures,post,0,0,0,0,0,0,0,0,0,0,0,0
 ,,,,,,,,,,,,,,
 Propagation smoothness,gtwSmo,latent,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2
 Intensity step for checking signal source,ratio,latent,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
 Remove pixels close to image boundary,regMaskGap,latent,5,5,5,5,5,5,5,5,5,5,5,5
-Frames per segment,cut,latent,200,200,200,800,200,800,200,800,200,800,200,800
+Frames per segment,cut,latent,200,200,1000,800,200,800,200,800,200,800,200,800
 Baseline window,movAvgWin,latent,25,25,25,25,25,25,25,25,25,25,25,25
 Event show threshold on raw data,minShow1,latent,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2
 Correct baseline trend,correctTrend,latent,1,1,1,1,1,1,1,1,1,1,1,1
@@ -46,8 +46,8 @@ Downsample duration,TPatch,latent,20,20,20,20,20,20,20,20,20,20,20,20
 Max Downsample Spatial,maxSpaScale,latent,7,7,7,7,7,7,7,7,7,7,7,7
 Min Downsample Spatial,minSpaScale,latent,3,3,3,3,3,3,3,3,3,3,3,3
 ,,,,,,,,,,,,,,
-Frame rate,frameRate,from data,0.06,0.06,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
-Spatial resolution,spatialRes,from data,4,2,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
+Frame rate,frameRate,from data,0.06,0.06,0.06,0.12,0.6,0.5,0.5,0.5,0.5,0.5,0.5,0.5
+Spatial resolution,spatialRes,from data,4,2,1,0.5,1,0.5,0.5,0.5,0.5,0.5,0.5,0.5
 Estimated noise variance,varEst,from data,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02
 Foreground threshold,fgFluo,from data,0,0,0,0,0,0,0,0,0,0,0,0
 Background threshold,bgFluo,from data,0,0,0,0,0,0,0,0,0,0,0,0

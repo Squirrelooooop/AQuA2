@@ -18,6 +18,13 @@ function [dF,opts] = baselineRemoveAndNoiseEstimation(datOrg,opts,evtSpatialMask
     tic;
     [F0] = pre.baselineLinearEstimate(datSmo,opts.cut,opts.movAvgWin);
     toc;
+
+    % --- F0 (baseline) and datSmo (spatially smoothed signal) traces ---
+    assignin('base', 'F0_CALCULATED', F0); 
+    assignin('base', 'datSmo_CALCULATED', datSmo);
+    % ---------------------------
+
+
     F0Pro = mean(F0,4);
     
     if exist('ff','var')&&~isempty(ff)
