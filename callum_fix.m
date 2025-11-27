@@ -3,9 +3,13 @@ close all;
 clc;
 clearvars
 startup;
-pIn = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/merged/'; %% input file folder
-pOut = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/processed/'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20251027_v35_m3/m2_3_analysis2/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20251027_v35_m3/m2_3_analysis2/processed/'; %% the folder for output results. Note that it ends with \.
 
+%check pOut, if none, make dir
+if ~exist(pOut, 'dir')
+    mkdir(pOut);
+end
 
 %% Ask the user for ds and Fs
 ds = input('Enter downsample factor (ds): ');

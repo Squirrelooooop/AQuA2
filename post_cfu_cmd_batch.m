@@ -10,8 +10,8 @@ clc;
 clearvars
 startup;  % initialize
 %% setting
-pIn = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/processed/'; % AQuA2 saved files folder
-pOut = '/Users/sunny/Desktop/Data/20251027_v35_m3/image/processed/cfu/'; % The folder for cfu results
+pIn = '/Users/sunny/Desktop/Data/20251028_v35_m2/processed/'; % AQuA2 saved files folder
+pOut = '/Users/sunny/Desktop/Data/20251028_v35_m2/processed/cfu/'; % The folder for cfu results
 
 whetherUpdateRes = true;    % whether to update saved files
 whetherOutputCFURes = true; % whether to output cfu results in pOut folder
