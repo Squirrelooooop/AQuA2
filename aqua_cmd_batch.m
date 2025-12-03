@@ -15,8 +15,8 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = ' /Users/sunny/Desktop/Data/20251027_v35_m3/m2_3_analysis2/processed/'; %% input file folder
-pOut = ' /Users/sunny/Desktop/Data/20251027_v35_m3/m2_3_analysis2/processed/'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20251027_v35_m3/m2_3_analysis2/processed/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20251027_v35_m3/m2_3_analysis2/processed/'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
@@ -39,7 +39,9 @@ if(~strcmp(p_landmark,''))
     bd('landmk') = landmark.bd0;
 end
 
-mkdir(pOut);
+if ~exist(pOut, 'dir')
+    mkdir(pOut);
+end
 
 % 2025/08/25 updated: multi-mode input
 files_tif = dir(fullfile(pIn, '*.tif'));
@@ -396,24 +398,27 @@ for xxx = 1:numel(files)
             ftTb2 = [];
             ftTbGlo2 = [];
         end
-    
-        %% curves
-        fea.outputCurves(dffAlignedMat1, fts1, dffAlignedMat2, fts2, opts, fpath, fname);
-        if(opts.detectGlo)
-            fea.outputCurves(dffAlignedMatGlo1, ftsGlo1, dffAlignedMatGlo2, ftsGlo2, opts, fpath, [fname,'_Glo']);
-        end
+        
+        % full trace curves
+        writematrix(dffMat1, [fpath,filesep,fname,'_fulltrace.csv']);
 
-        %% for each region
-        fea.outputRegions(fts1, ftTb1, [], fts2, ftTb2, [], bd, opts, fpath, fname);
-        if(opts.detectGlo)
-            fea.outputRegions(ftsGlo1, ftTbGlo1, [], ftsGlo2, ftTbGlo2, [], bd, opts, fpath, fname);
-        end
+        % %% curves
+        % fea.outputCurves(dffAlignedMat1, fts1, dffAlignedMat2, fts2, opts, fpath, fname);
+        % if(opts.detectGlo)
+        %     fea.outputCurves(dffAlignedMatGlo1, ftsGlo1, dffAlignedMatGlo2, ftsGlo2, opts, fpath, [fname,'_Glo']);
+        % end
+        % 
+        % %% for each region
+        % fea.outputRegions(fts1, ftTb1, [], fts2, ftTb2, [], bd, opts, fpath, fname);
+        % if(opts.detectGlo)
+        %     fea.outputRegions(ftsGlo1, ftTbGlo1, [], ftsGlo2, ftTbGlo2, [], bd, opts, fpath, fname);
+        % end
 
-        %% rising maps
-        fea.outputRisingMap([],[],riseLst1, 1:numel(riseLst1), riseLst2, 1:numel(riseLst2), opts, fpath, [fname, '_risingMaps']);
-        if(opts.detectGlo)
-            fea.outputRisingMap([],[],gloRiseLst1, 1:numel(gloRiseLst1), gloRiseLst2, 1:numel(gloRiseLst2), opts, fpath ,[fname, '_risingMaps_Glo']);
-        end
+        % %% rising maps
+        % fea.outputRisingMap([],[],riseLst1, 1:numel(riseLst1), riseLst2, 1:numel(riseLst2), opts, fpath, [fname, '_risingMaps']);
+        % if(opts.detectGlo)
+        %     fea.outputRisingMap([],[],gloRiseLst1, 1:numel(gloRiseLst1), gloRiseLst2, 1:numel(gloRiseLst2), opts, fpath ,[fname, '_risingMaps_Glo']);
+        % end
 
     end
 
