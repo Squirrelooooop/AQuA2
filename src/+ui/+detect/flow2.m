@@ -1,8 +1,5 @@
 function flow2(~,evtDat,f)
 %% the function of RunAllSteps
-
-% delete(gcp('nocreate'));
-
 fh = guidata(f);
 ui.detect.preProcessRun([],[],f);
 if(~isempty(getappdata(f,'datCorrect1')))

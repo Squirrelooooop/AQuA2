@@ -361,7 +361,7 @@ for xxx = 1:numel(files)
     % else
         pOut_each = pOut;
     end
-    save([pOut_each,name,'_AQuA2.mat'], 'res','-v7.3', '-nocompression');   
+    save([pOut_each,name,'_AQuA2.mat'], 'res','-v7.3');   
 
     %% FeatureTable
     if batchSet.outputFeatureTable
