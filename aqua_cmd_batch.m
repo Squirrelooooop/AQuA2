@@ -15,8 +15,8 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = '/Users/sunny/Desktop/Data/20251027_v35_m3/m2_3_analysis2/processed/'; %% input file folder
-pOut = '/Users/sunny/Desktop/Data/20251027_v35_m3/m2_3_analysis2/processed/'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Downloads/ExVivoSuppRaw.tif'; %% input file folder
+pOut = '/Users/sunny/Downloads/ExVivoSuppRaw.tif'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
