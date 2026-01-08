@@ -15,8 +15,8 @@ close all;
 clc;
 clearvars
 startup;  % initialize
-pIn = '/Users/sunny/Downloads/ExVivoSuppRaw.tif'; %% input file folder
-pOut = '/Users/sunny/Downloads/ExVivoSuppRaw.tif'; %% the folder for output results. Note that it ends with \.
+pIn = '/Users/sunny/Desktop/Data/20251205_M8_9_v35/s2_2/analysis1/'; %% input file folder
+pOut = '/Users/sunny/Desktop/Data/20251205_M8_9_v35/s2_2/analysis1/'; %% the folder for output results. Note that it ends with \.
 
 batchSet.propMetric = true;    % whether extract propagation-related features
 batchSet.networkFeatures = true; % whether extract network features
@@ -52,7 +52,7 @@ files = [files_tif; files_tiff; files_mat];
 for xxx = 1:numel(files)
     f1 = files(xxx).name; 
     %% load setting (you can also manually modify setting here)
-    opts = util.parseParam_for_batch(5);
+    opts = util.parseParam_for_batch(6);
     opts.singleChannel = true;      % batch only leverages single channel for simplicity
     opts.whetherExtend = true;
     opts.detectGlo = false;
@@ -355,12 +355,12 @@ for xxx = 1:numel(files)
     %% save output
     disp('Saving result...');
     name = erase(f1, {'.tiff','.tif','.mat'});
-    if (numel(files)>1)
+    %if (numel(files)>1)
     %    pOut_each = [pOut, name, '_results/'];
     %    mkdir(pOut_each);
     % else
         pOut_each = pOut;
-    end
+    %end
     save([pOut_each,name,'_AQuA2.mat'], 'res','-v7.3', '-nocompression');   
 
     %% FeatureTable
